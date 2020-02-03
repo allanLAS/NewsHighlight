@@ -11,9 +11,10 @@
             <div class="card-body">
                 <h3 class="card-title">{{article.title}}</h3>
                 <p>Published at {{article.publishedAt}}</p>
-                <a
+                <a href="{{article.url}}" class="btn btn-danger" target="_blank">Get the Full story</a>
             </div>
         </div>
 
     </div>
 </div>
+{% endblock %}
