@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_sources, get_article
+from ..requests import get_news, get_sources, get_article, search_news
 from ..models import Sources, Articles
 
 
@@ -33,3 +33,10 @@ def articles(id):
     id_articles = id
 
     return render_template('articles.html', article=article, name=id)
+
+
+@main.route('/search/<keywords>')
+def source_search(keywords):
+    searched_news = search_news(keywords)
+    title = f'search results for {keywords}'
+    return render_template('search.html', title=title, articles=searched_news)
