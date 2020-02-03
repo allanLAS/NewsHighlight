@@ -1,9 +1,35 @@
-from flask import render_template, request, redirect, url_for
-from config import config_options
-from flask_bootstrap import Bootstrap
+from flask import render_template
+from . import main
+from ..requests import get_sources, get_article
+from ..models import Sources, Articles
 
-bootstrap = Bootstrap()
+
+# Views
+@main.route('/')
+def index():
+    """
+    View root page function that returns the index page and its data
+    :return:
+    """
+
+    # Trending news headline
+    trending_headlines = get_news('Trending')
+    print(trending_headlines)
+
+    news_sources = get_sources()
+    title = 'News Feed'
+    return render_template('index.html', title=title, sources=news_sources)
 
 
-def create_app(config_name):
-    app = Flask(__name__)
+@main.route('/articles/<id>')
+def articles(id):
+    """
+    View news articles from a single news source
+    :param id:
+    :return:
+    """
+    article = get_article(id)
+    title = f'{id}'
+    id_articles = id
+
+    return render_template('articles.html', article=article, name=id)
