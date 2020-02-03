@@ -1,8 +1,9 @@
 from flask import render_template, request, redirect, url_for
-from . import main
-from ..request import get_sources, get_articles
+from config import config_options
+from flask_bootstrap import Bootstrap
 
-#views
+bootstrap = Bootstrap()
 
 
-
+def create_app(config_name):
+    app = Flask(__name__)
