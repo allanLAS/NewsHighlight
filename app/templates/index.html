@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h3 class="title"><b> News Sources </b></h3>
+        {% for source in sources %}
+
+        <section class="col-sm-4 card w3-sand">
+            <hr>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h2 class="card-title"><u>{{source.name}}</u></h2>
+                    <p class="card-text">{{source.description}}</p>
+                    <a href="/article/{{source.id}}" class="btn btn-danger">View Articles</a>
+                </div>
+            </div>
+        </section>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock%}
