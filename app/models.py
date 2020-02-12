@@ -1,3 +1,17 @@
+class News:
+    """
+    News class to define news
+    """
+
+    def __init__(self, author, title, description, urlToImage, publishedAt, content):
+        self.author = author
+        self.title = title
+        self.description = description
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.content = content
+
+
 class Sources:
     """
      News class to define News sources
@@ -9,17 +23,17 @@ class Sources:
         self.description = description
         self.url = url
 
-
 class Articles:
     """
     News articles
     """
 
-    def __init__(self, id, name, title, url, urlToImage, content, publishedAt):
-        self.id = id
-        self.name = name
+    def __init__(self, author, title, description, url, image_url, publishedAt, content):
+        self.author = author
         self.title = title
+        self.description = description
         self.url = url
-        self.urlToImage = urlToImage
-        self.content = content
+        self.image_url = image_url
         self.publishedAt = publishedAt
+        self.content = content
+

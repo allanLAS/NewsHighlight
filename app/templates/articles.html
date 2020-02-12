@@ -5,7 +5,7 @@
     <h2 class="article">News Articles</h2>
     <div class="row">
         
-        {% for article in article %}
+        {% for article in articles %}
         <div class="card">
             <img src="{{article.urlToImage}}">
             <div class="card-body">
@@ -14,7 +14,7 @@
                 <a href="{{article.url}}" class="btn btn-danger" target="_blank">Get the Full story</a>
             </div>
         </div>
-
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

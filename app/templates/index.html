@@ -1,23 +1,97 @@
 {% extends 'base.html'%}
 
-{% block content %}
-<div class="container">
-    <div class="row">
-        <h3 class="title"><b> News Sources </b></h3>
-        {% for source in sources %}
 
-        <section class="col-sm-4 card w3-sand">
-            <hr>
-            <div class="col-md-6">
-                <div class="card-body">
-                    <h2 class="card-title"><u>{{source.name}}</u></h2>
-                    <p class="card-text">{{source.description}}</p>
-                    <a href="/article/{{source.id}}" class="btn btn-danger">View Articles</a>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title> {{ txt }} </title>
+    {% else %}
+    <title> News Highlights </title>
+    {% endif %}
+
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+    {% endblock %}
+
+</head>
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <h3 class="title"> Sources</h3>
+            {% for source in sources %}
+
+            <section class="col-sm-4 card">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 class="card-title"> {{source.name}} </h2>
+                        <p class="card-text"> {{source.description}} </p>
+                        <a href="/article/{{source.id}}" class="btn btn-danger">View Articles</a>
+
+                    </div>
+
                 </div>
-            </div>
-        </section>
-        {% endfor %}
 
-    </div>
-</div>
-{% endblock%}
+            </section>
+            {% endfor %}
+        </div>
+         <div class="row">
+            <h3 class="title"> Sports </h3>
+            {% for sport in sports %}
+
+            <section class="col-sm-4 card">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 class="card-title"> {{sport.name}} </h2>
+                        <p class="card-text"> {{sport.description}} </p>
+                        <a href="/article/{{sport.id}}" class="btn btn-danger">View Articles</a>
+
+                    </div>
+
+                </div>
+
+            </section>
+            {% endfor %}
+        </div>
+         <div class="row">
+            <h3 class="title"> Technology </h3>
+            {% for technology in technology %}
+
+            <section class="col-sm-4 card">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 class="card-title"> {{technology.name}} </h2>
+                        <p class="card-text"> {{technology.description}} </p>
+                        <a href="/article/{{technology.id}}" class="btn btn-danger">View Articles</a>
+
+                    </div>
+
+                </div>
+
+            </section>
+            {% endfor %}
+        </div>
+         <div class="row">
+            <h3 class="title"> Entertainment </h3>
+            {% for entertainment in entertainment %}
+
+            <section class="col-sm-4 card">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 class="card-title"> {{entertainment.name}} </h2>
+                        <p class="card-text"> {{entertainment.description}} </p>
+                        <a href="/article/{{entertainment.id}}" class="btn btn-danger">View Articles</a>
+
+                    </div>
+
+                </div>
+
+            </section>
+            {% endfor %}
+        </div>
+        </div>
+        {% endblock %}
+
+

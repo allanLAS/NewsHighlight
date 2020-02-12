@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_sources, get_articles
+from ..requests import get_news, get_sources, get_articles
 from ..models import Sources, Articles
 
 
@@ -12,23 +12,35 @@ def index():
     :return:
     """
 
-    news_sources = get_sources()
-    title = 'News Feed'
-    return render_template('index.html', title=title, sources=news_sources)
+    # Get top headlines
+    # top_headlines = get_news()
+    # print(top_headlines)
+
+    sources = get_sources('business')
+    sports = get_sources('sports')
+    technology = get_sources('technology')
+    entertainment = get_sources('entertainment')
+
+    print(sources)
+
+    # general = get_sources('general')
+    title = 'News Highlights'
+    return render_template('index.html', txt=title, sources=sources, sports=sports,
+                           technology=technology, entertainment=entertainment)
 
 
-@main.route('/articles/<id>')
+@main.route('/article/<id>')
 def articles(id):
     """
     View news articles from a single news source
     :param id:
     :return:
     """
-    article = get_articles(id)
+    articles = get_articles(id)
     title = f'{id}'
-    id_articles = id
 
-    return render_template('articles.html', article=article, name=id)
+
+    return render_template('articles.html', articles=articles, title=title)
 
 
 
