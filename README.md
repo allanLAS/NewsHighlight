@@ -4,7 +4,7 @@ This is a Python web application built on flask framework that utilises the news
 # Author
 Allan Lumumba
 
-#Technology used
+# Technology used
 1. HTML
 2. Python
 3. Flask
