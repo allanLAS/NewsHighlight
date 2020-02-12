@@ -1,5 +1,5 @@
 ## News Highlight
-This is a Python application that allows a user to receive a list of news updates and previews.
+This is a Python web application built on flask framework that utilises the news api to display news articles and their various sources.
 
 # Author
 Allan Lumumba
@@ -10,7 +10,10 @@ Allan Lumumba
 3. Flask
 
 # Installation
-To access this application on your termianl, git clone from https://github.com/allanLAS/NewsHighlight.git
+To access this application, users can view the demo via: https:///allan-news-bulletins.herokuapp.com/
+
+# Known Bugs
+Images do not display
 
 # Contact Details
 allan@gmail.com
